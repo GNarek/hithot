@@ -38,7 +38,6 @@ const startSound = new Sound(require('../../assets/sounds/start.mp3'));
 const clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
 const windSound = new Sound(require('../../assets/sounds/wind.mp3'));
 const thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
-windSound.setNumberOfLoops(-1);
 
 const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
   const [cubes, setCubes]: [ICubes, (e: any) => void] = useState({});
@@ -105,6 +104,7 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
   }, []);
 
   useEffect(() => {
+    windSound.setNumberOfLoops(-1);
     windSound.play();
     const interval = setInterval(generateCube, 2000);
 

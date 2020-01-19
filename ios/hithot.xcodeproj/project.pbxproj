@@ -46,7 +46,7 @@
 		00E356F21AD99517003FC87E /* hithotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hithotTests.m; sourceTree = "<group>"; };
 		04CED6E27B7F0A1381CA0A69 /* libPods-hithot-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hithot-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A41CF3B73E4226F1D9C5BCF /* Pods-hithotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hithotTests.release.xcconfig"; path = "Target Support Files/Pods-hithotTests/Pods-hithotTests.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* hithot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hithot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* HitHot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitHot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = hithot/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = hithot/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* hithot.app */,
+				13B07F961A680F5B00A75B9A /* HitHot.app */,
 				00E356EE1AD99517003FC87E /* hithotTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* hithot-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* hithot-tvOSTests.xctest */,
@@ -236,7 +236,7 @@
 			);
 			name = hithot;
 			productName = hithot;
-			productReference = 13B07F961A680F5B00A75B9A /* hithot.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* HitHot.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* hithot-tvOS */ = {
@@ -636,7 +636,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = hithot;
+				PRODUCT_NAME = HitHot;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -655,7 +655,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = hithot;
+				PRODUCT_NAME = HitHot;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
