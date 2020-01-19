@@ -148,7 +148,6 @@
 				FD037458659B8CF58973EE9C /* Pods-hithotTests.debug.xcconfig */,
 				0A41CF3B73E4226F1D9C5BCF /* Pods-hithotTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +307,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
