@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {IPoints} from '../../types';
 
 import styles from './WelcomeScreenStyle';
+import mainStyle from '../../MainStyle';
 
 interface IProps {
   points: IPoints;
@@ -18,7 +19,9 @@ const WelcomeScreen = ({points, onPress}: IProps) => {
     <View style={styles.wrapper}>
       <View style={styles.boxWrapper}>
         <View style={styles.box}>
-          <Text style={styles.whiteText}>Hit: {points.hit}</Text>
+          <Text style={[styles.whiteText, mainStyle.rotate]}>
+            Hit: {points.hit}
+          </Text>
         </View>
         <View style={styles.startWrapper}>
           <TouchableOpacity style={styles.cube} onPress={_handleOnPress}>

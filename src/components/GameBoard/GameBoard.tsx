@@ -5,6 +5,7 @@ import React, {
   useCallback,
 } from 'react';
 import {View, Text} from 'react-native';
+import Sound from 'react-native-sound';
 
 import styles from './GameBoardStyle';
 import Cube from './Cube/Cube';
@@ -31,7 +32,13 @@ interface ICubes {
 
 let isHitPlayer = true;
 let wrapperHeight = 0;
-const maxPoint = 10;
+const maxPoint = 100;
+
+const startSound = new Sound(require('../../assets/sounds/start.mp3'));
+const clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
+const windSound = new Sound(require('../../assets/sounds/wind.mp3'));
+const thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
+windSound.setNumberOfLoops(-1);
 
 const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
   const [cubes, setCubes]: [ICubes, (e: any) => void] = useState({});
@@ -44,6 +51,9 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
       if (isClicked) {
         const half = wrapperHeight / 2;
         const isHalfPassed = half < offset + cubeSize;
+
+        clickSound.stop();
+        clickSound.play();
 
         if (cubes[id].isHitPlayer) {
           // Player Hit
@@ -62,8 +72,10 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
         }
         setPoints({...points});
         delete cubes[id];
+
         if (points.hit >= maxPoint || points.hot >= maxPoint) {
           onGameFinished(points);
+          thunder.play();
         }
       }
       delete cubes[id];
@@ -87,13 +99,19 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
     };
 
     setCubes({...cubes});
+    startSound.stop();
+    startSound.play();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    windSound.play();
     const interval = setInterval(generateCube, 2000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      windSound.pause();
+    };
   }, [generateCube]);
 
   return (

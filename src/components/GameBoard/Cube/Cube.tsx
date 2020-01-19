@@ -12,7 +12,7 @@ import {getRandomInt} from '../../../utils/utils';
 import {Screen} from '../../../MainStyle';
 import styles, {cubeSize, wrapperSize} from './CubeStyle';
 
-interface Props {
+interface IProps {
   id: string;
   style?: Object;
   isHitPlayer: boolean;
@@ -26,13 +26,20 @@ const vibrationPattern = Platform.select({
   android: [0, 100],
 }) as number[];
 
-const Cube = ({id, style = {}, onPress, isHitPlayer}: Props) => {
+const defaultProps = {
+  isHitPlayer: false,
+  id: '',
+  onPress: () => {},
+};
+
+const Cube = (props: IProps = defaultProps) => {
+  const {id, style = {}, onPress, isHitPlayer} = props;
   const [start, end] = isHitPlayer
     ? [-wrapperSize, offset]
     : [offset, -wrapperSize];
   const [fadeAnim] = useState(new Animated.Value(start));
-  const speed = getRandomInt(1000, 2000);
-  const position = getRandomInt(0, 5) * 2 * cubeSize;
+  const speed = getRandomInt(500, 2000);
+  const position = getRandomInt(0, 4) * 2 * cubeSize;
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
