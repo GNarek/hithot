@@ -1,5 +1,12 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {Animated, Easing, TouchableOpacity, View} from 'react-native';
+import {
+  Animated,
+  Easing,
+  TouchableOpacity,
+  View,
+  Vibration,
+  Platform,
+} from 'react-native';
 
 import {getRandomInt} from '../../../utils/utils';
 import {Screen} from '../../../MainStyle';
@@ -14,6 +21,10 @@ interface Props {
 
 const offset = Screen.height - wrapperSize;
 const hitSlop = {top: 100, right: 100, bottom: 100, left: 100};
+const vibrationPattern = Platform.select({
+  ios: [0],
+  android: [0, 100],
+}) as number[];
 
 const Cube = ({id, style = {}, onPress, isHitPlayer}: Props) => {
   const [start, end] = isHitPlayer
@@ -41,6 +52,7 @@ const Cube = ({id, style = {}, onPress, isHitPlayer}: Props) => {
     // @ts-ignore
     const currentValue = fadeAnim.__getValue();
     onPress(id, true, currentValue);
+    Vibration.vibrate(vibrationPattern);
   }, [fadeAnim, onPress, id]);
 
   const background = isHitPlayer ? styles.playerHit : styles.playerHot;
