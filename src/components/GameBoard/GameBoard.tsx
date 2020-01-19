@@ -11,6 +11,14 @@ import Cube from './Cube/Cube';
 import {uniqueID, getRandomInt} from './../../utils/utils';
 import {cubeSize} from './Cube/CubeStyle';
 
+import {IPoints} from '../../types';
+
+interface IProps {
+  onGameFinished: (points: IPoints) => void;
+  style?: Object;
+  initialPoints: IPoints;
+}
+
 interface ICube {
   id: string;
   element: FunctionComponentElement<typeof Cube>;
@@ -21,20 +29,11 @@ interface ICubes {
   [key: string]: ICube;
 }
 
-interface IPoints {
-  hit: number;
-  hot: number;
-}
-
 let isHitPlayer = true;
-
-const initialPoints = {
-  hit: 0,
-  hot: 0,
-};
 let wrapperHeight = 0;
+const maxPoint = 10;
 
-const GameBoard = ({style = {}}) => {
+const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
   const [cubes, setCubes]: [ICubes, (e: any) => void] = useState({});
   const [points, setPoints]: [IPoints, (e: any) => void] = useState(
     initialPoints,
@@ -63,6 +62,9 @@ const GameBoard = ({style = {}}) => {
         }
         setPoints({...points});
         delete cubes[id];
+        if (points.hit >= maxPoint || points.hot >= maxPoint) {
+          onGameFinished(points);
+        }
       }
       delete cubes[id];
       setCubes({...cubes});
@@ -89,7 +91,9 @@ const GameBoard = ({style = {}}) => {
   }, []);
 
   useEffect(() => {
-    setInterval(generateCube, 2000);
+    const interval = setInterval(generateCube, 2000);
+
+    return () => clearInterval(interval);
   }, [generateCube]);
 
   return (
@@ -99,11 +103,11 @@ const GameBoard = ({style = {}}) => {
       {Object.keys(cubes).map(index => (
         <View key={cubes[index].id}>{cubes[index].element}</View>
       ))}
-      <Text>V: 1</Text>
+      <Text>V: 1.0.1</Text>
       <Text style={[styles.name, styles.hitname]}>{`Hit: ${points.hit}`}</Text>
       <Text style={[styles.name, styles.hotname]}>{`Hot: ${points.hot}`}</Text>
     </View>
   );
 };
 
-export default React.memo(GameBoard);
+export default GameBoard;
