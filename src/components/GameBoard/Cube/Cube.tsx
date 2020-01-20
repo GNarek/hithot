@@ -1,12 +1,7 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {
-  Animated,
-  Easing,
-  TouchableOpacity,
-  View,
-  Vibration,
-  Platform,
-} from 'react-native';
+import {Animated, Easing, View, Vibration, Platform} from 'react-native';
+
+import Button from '../../Button/Button';
 
 import {getRandomInt} from '../../../utils/utils';
 import {Screen} from '../../../MainStyle';
@@ -67,12 +62,12 @@ const Cube = (props: IProps = defaultProps) => {
   return (
     <Animated.View
       style={[styles.wrapper, style, {top: fadeAnim, left: position}]}>
-      <TouchableOpacity
+      <Button
         hitSlop={hitSlop}
         onPress={_handlePress}
         style={styles.cubeWrapper}>
         <View style={[styles.cube, background]} />
-      </TouchableOpacity>
+      </Button>
     </Animated.View>
   );
 };
