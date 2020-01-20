@@ -187,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				6D6A424E23D5AF690065EC50 /* libCodePush.a */,
-				6D6A425023D5AF690065EC50 /* libCodePush.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,13 +368,6 @@
 			fileType = archive.ar;
 			path = libCodePush.a;
 			remoteRef = 6D6A424D23D5AF690065EC50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6D6A425023D5AF690065EC50 /* libCodePush.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCodePush.a;
-			remoteRef = 6D6A424F23D5AF690065EC50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
