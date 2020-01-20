@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HitHot</string>
+    <string name="CodePushDeploymentKey" moduleConfig="true" translatable="false">DhWPLyulZl2nT3VdaSJXlNw1Tfem1ZZYPNgJd</string>
 </resources>

@@ -18,6 +18,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* hithotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* hithotTests.m */; };
+		6D6A425323D5B39F0065EC50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6A425223D5B39F0065EC50 /* libz.tbd */; };
 		9730BC85BF2D54D731635019 /* libPods-hithot-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1050143FAAD5C6A85FBA48 /* libPods-hithot-tvOS.a */; };
 		A58DC35DF8567A2D4C921B2C /* libPods-hithot-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CED6E27B7F0A1381CA0A69 /* libPods-hithot-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "hithot-tvOS";
+		};
+		6D6A424D23D5AF690065EC50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D6A424823D5AF690065EC50 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = CodePush;
+		};
+		6D6A424F23D5AF690065EC50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D6A424823D5AF690065EC50 /* CodePush.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F886647B1F4ADB500036D01B;
+			remoteInfo = "CodePush-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -58,6 +73,8 @@
 		2D02E4901E0B4A5D006451C7 /* hithot-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "hithot-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F05C66F8613FCF45A0DA98 /* Pods-hithot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hithot.debug.xcconfig"; path = "Target Support Files/Pods-hithot/Pods-hithot.debug.xcconfig"; sourceTree = "<group>"; };
 		33328EBDFA51E12E0BBFD034 /* libPods-hithot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hithot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D6A424823D5AF690065EC50 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; };
+		6D6A425223D5B39F0065EC50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7EA2E275A23CAA69AB33F190 /* Pods-hithot-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hithot-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-hithot-tvOS/Pods-hithot-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		87A31FC302080FF8BFCCF31F /* Pods-hithot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hithot.release.xcconfig"; path = "Target Support Files/Pods-hithot/Pods-hithot.release.xcconfig"; sourceTree = "<group>"; };
 		8968341BC662079CAA745D73 /* libPods-hithotTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hithotTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D6A425323D5B39F0065EC50 /* libz.tbd in Frameworks */,
 				29EB16E342FDE87E46D0D7AB /* libPods-hithot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +172,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D6A425223D5B39F0065EC50 /* libz.tbd */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				33328EBDFA51E12E0BBFD034 /* libPods-hithot.a */,
@@ -164,9 +183,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6D6A424923D5AF690065EC50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D6A424E23D5AF690065EC50 /* libCodePush.a */,
+				6D6A425023D5AF690065EC50 /* libCodePush.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6D6A424823D5AF690065EC50 /* CodePush.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -314,6 +343,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6D6A424923D5AF690065EC50 /* Products */;
+					ProjectRef = 6D6A424823D5AF690065EC50 /* CodePush.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* hithot */,
@@ -323,6 +358,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6D6A424E23D5AF690065EC50 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 6D6A424D23D5AF690065EC50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6D6A425023D5AF690065EC50 /* libCodePush.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCodePush.a;
+			remoteRef = 6D6A424F23D5AF690065EC50 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
