@@ -33,7 +33,7 @@ const Cube = (props: IProps = defaultProps) => {
     ? [-wrapperSize, offset]
     : [offset, -wrapperSize];
   const [fadeAnim] = useState(new Animated.Value(start));
-  const speed = getRandomInt(500, 2000);
+  const speed = getRandomInt(1000, 4000);
   const position = getRandomInt(0, 4) * 2 * cubeSize;
 
   useEffect(() => {

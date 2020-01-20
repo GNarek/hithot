@@ -106,7 +106,7 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
   useEffect(() => {
     windSound.setNumberOfLoops(-1);
     windSound.play();
-    const interval = setInterval(generateCube, 2000);
+    const interval = setInterval(generateCube, 500);
 
     return () => {
       clearInterval(interval);
