@@ -14,8 +14,6 @@ import {cubeSize} from './Cube/CubeStyle';
 
 import {IPoints} from '../../types';
 
-Sound.setCategory('Playback');
-
 interface IProps {
   onGameFinished: (points: IPoints) => void;
   style?: Object;
@@ -36,26 +34,28 @@ let isHitPlayer = true;
 let wrapperHeight = 0;
 const maxPoint = 100;
 
-let startSound: any;
-let clickSound: any;
-let windSound: any;
-let thunder: any;
+const startSound = new Sound(require('../../assets/sounds/start.mp3'));
+const clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
+const windSound = new Sound(require('../../assets/sounds/wind.mp3'));
+const thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
+let stateInitialazed = false;
 
 const playPauseBackgroundSound = () => {
-  startSound = new Sound(require('../../assets/sounds/start.mp3'));
-  clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
-  windSound = new Sound(require('../../assets/sounds/wind.mp3'));
-  thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
+  if (!stateInitialazed) {
+    stateInitialazed = true;
+    Sound.setCategory('Playback');
 
-  windSound.setNumberOfLoops(-1);
+    windSound.setNumberOfLoops(-1);
+    windSound.play();
 
-  AppState.addEventListener('change', state => {
-    if (state === 'background') {
-      windSound.pause();
-    } else {
-      windSound.play();
-    }
-  });
+    AppState.addEventListener('change', state => {
+      if (state === 'background') {
+        windSound.pause();
+      } else {
+        windSound.play();
+      }
+    });
+  }
 };
 
 const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
@@ -116,15 +116,13 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
       element,
     };
 
-    setCubes({...cubes});
     startSound.stop();
     startSound.play();
+    setCubes({...cubes});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    playPauseBackgroundSound();
-    windSound.play();
     const interval = setInterval(generateCube, 500);
 
     return () => {
@@ -132,6 +130,8 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
       windSound.pause();
     };
   }, [generateCube]);
+
+  playPauseBackgroundSound();
 
   return (
     <View

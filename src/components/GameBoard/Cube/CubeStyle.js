@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.black,
   },
   playerHot: {
-    backgroundColor: Colors.red,
+    backgroundColor: Colors.white,
   },
 });
 
