@@ -36,12 +36,19 @@ let isHitPlayer = true;
 let wrapperHeight = 0;
 const maxPoint = 100;
 
-const startSound = new Sound(require('../../assets/sounds/start.mp3'));
-const clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
-const windSound = new Sound(require('../../assets/sounds/wind.mp3'));
-const thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
+let startSound: any;
+let clickSound: any;
+let windSound: any;
+let thunder: any;
 
 const playPauseBackgroundSound = () => {
+  startSound = new Sound(require('../../assets/sounds/start.mp3'));
+  clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
+  windSound = new Sound(require('../../assets/sounds/wind.mp3'));
+  thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
+
+  windSound.setNumberOfLoops(-1);
+
   AppState.addEventListener('change', state => {
     if (state === 'background') {
       windSound.pause();
@@ -91,8 +98,6 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
       }
       delete cubes[id];
       setCubes({...cubes});
-
-      playPauseBackgroundSound();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
@@ -118,7 +123,7 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
   }, []);
 
   useEffect(() => {
-    windSound.setNumberOfLoops(-1);
+    playPauseBackgroundSound();
     windSound.play();
     const interval = setInterval(generateCube, 500);
 
