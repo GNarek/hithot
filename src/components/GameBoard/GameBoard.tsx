@@ -4,7 +4,7 @@ import React, {
   FunctionComponentElement,
   useCallback,
 } from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, AppState} from 'react-native';
 import Sound from 'react-native-sound';
 
 import styles from './GameBoardStyle';
@@ -13,6 +13,8 @@ import {uniqueID, getRandomInt} from './../../utils/utils';
 import {cubeSize} from './Cube/CubeStyle';
 
 import {IPoints} from '../../types';
+
+Sound.setCategory('Playback');
 
 interface IProps {
   onGameFinished: (points: IPoints) => void;
@@ -38,6 +40,16 @@ const startSound = new Sound(require('../../assets/sounds/start.mp3'));
 const clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
 const windSound = new Sound(require('../../assets/sounds/wind.mp3'));
 const thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
+
+const playPauseBackgroundSound = () => {
+  AppState.addEventListener('change', state => {
+    if (state === 'background') {
+      windSound.pause();
+    } else {
+      windSound.play();
+    }
+  });
+};
 
 const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
   const [cubes, setCubes]: [ICubes, (e: any) => void] = useState({});
@@ -79,6 +91,8 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
       }
       delete cubes[id];
       setCubes({...cubes});
+
+      playPauseBackgroundSound();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
