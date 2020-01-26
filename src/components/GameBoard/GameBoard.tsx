@@ -7,6 +7,7 @@ import React, {
 import {View, Text, AppState} from 'react-native';
 import Sound from 'react-native-sound';
 
+import AppStore from '../../Store/Store';
 import styles from './GameBoardStyle';
 import Cube from './Cube/Cube';
 import {uniqueID, getRandomInt} from './../../utils/utils';
@@ -116,8 +117,11 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
       element,
     };
 
-    startSound.stop();
-    startSound.play();
+    if (AppStore.settings.moveSoundEnabled) {
+      startSound.stop();
+      startSound.play();
+    }
+
     setCubes({...cubes});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

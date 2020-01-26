@@ -22,10 +22,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  cube: {
-    backgroundColor: Colors.grey1,
+  startButton: {
+    flex: 1,
+    marginTop: 20,
+    backgroundColor: Colors.grey7,
     width: Screen.width / 4,
-    height: Screen.width / 4,
+    height: Screen.width / 8,
     alignItems: 'center',
     justifyContent: 'center',
   },

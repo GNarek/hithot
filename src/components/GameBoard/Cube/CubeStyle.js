@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {Colors, Screen} from '../../../MainStyle';
+import {Screen} from '../../../MainStyle';
+import AppStore from '../../../Store/Store';
 
 const wrapperSize = Screen.width / 5;
 const cubeSize = wrapperSize / 2;
@@ -22,10 +23,10 @@ const styles = StyleSheet.create({
     height: cubeSize,
   },
   playerHit: {
-    backgroundColor: Colors.black,
+    backgroundColor: AppStore.settings.hit.backgroundColor,
   },
   playerHot: {
-    backgroundColor: Colors.white,
+    backgroundColor: AppStore.settings.hot.backgroundColor,
   },
 });
 

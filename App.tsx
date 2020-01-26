@@ -4,8 +4,9 @@ import codePush from 'react-native-code-push';
 
 import HitHot from './src/HitHot';
 import {Colors} from './src/MainStyle';
+import AppStore from './src/Store/Store';
 
-declare var global: {HermesInternal: null | {}};
+AppStore.init();
 
 const App = () => {
   return (

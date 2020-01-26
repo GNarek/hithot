@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {Animated, Easing, View, Vibration, Platform} from 'react-native';
 
+import AppStore from '../../../Store/Store';
 import Button from '../../Button/Button';
-
 import {getRandomInt} from '../../../utils/utils';
 import {Screen} from '../../../MainStyle';
 import styles, {cubeSize, wrapperSize} from './CubeStyle';
@@ -54,10 +54,16 @@ const Cube = (props: IProps = defaultProps) => {
     // @ts-ignore
     const currentValue = fadeAnim.__getValue();
     onPress(id, true, currentValue);
-    Vibration.vibrate(vibrationPattern);
+    if (AppStore.settings.vibrationEnabled) {
+      Vibration.vibrate(vibrationPattern);
+    }
   }, [fadeAnim, onPress, id]);
 
-  const background = isHitPlayer ? styles.playerHit : styles.playerHot;
+  const background = {
+    backgroundColor: isHitPlayer
+      ? AppStore.settings.hit.backgroundColor
+      : AppStore.settings.hot.backgroundColor,
+  };
 
   return (
     <Animated.View

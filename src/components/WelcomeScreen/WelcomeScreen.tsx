@@ -2,6 +2,7 @@ import React, {useCallback} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {IPoints} from '../../types';
 
+import Settings from '../Settings/Settings';
 import styles from './WelcomeScreenStyle';
 import mainStyle from '../../MainStyle';
 
@@ -23,9 +24,12 @@ const WelcomeScreen = ({points, onPress}: IProps) => {
             Hit: {points.hit}
           </Text>
         </View>
+        <Settings />
         <View style={styles.startWrapper}>
-          <TouchableOpacity style={styles.cube} onPress={_handleOnPress}>
-            <View />
+          <TouchableOpacity onPress={_handleOnPress}>
+            <View style={styles.startButton}>
+              <Text>Start</Text>
+            </View>
           </TouchableOpacity>
         </View>
         <View style={styles.box}>
