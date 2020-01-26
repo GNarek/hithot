@@ -2,7 +2,7 @@ import {Colors} from './MainStyle';
 
 const defaultSettings = {
   moveSoundEnabled: false,
-  vibrationEnabled: false,
+  vibrationEnabled: true,
   hit: {
     backgroundColor: Colors.black,
   },
