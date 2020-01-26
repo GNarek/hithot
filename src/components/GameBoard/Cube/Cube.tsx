@@ -15,7 +15,7 @@ interface IProps {
 }
 
 const offset = Screen.height - wrapperSize;
-const hitSlop = {top: 100, right: 100, bottom: 100, left: 100};
+const hitSlop = {top: 50, right: 50, bottom: 50, left: 50};
 const vibrationPattern = Platform.select({
   ios: [0],
   android: [0, 100],
