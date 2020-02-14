@@ -1,7 +1,8 @@
 import React, {useCallback, useState, useEffect} from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import AppStore from '../../Store/Store';
-import {Colors} from '../../MainStyle';
+// import {Colors} from '../../MainStyle';
+import {getRandomColor} from '../../utils/utils';
 import styles from './SettingsStyle';
 
 const Settings = () => {
@@ -17,10 +18,11 @@ const Settings = () => {
   const toggle = useCallback(() => {
     // AppStore.settings.moveSoundEnabled = !AppStore.settings.moveSoundEnabled;
 
-    AppStore.settings.hit.backgroundColor =
-      AppStore.settings.hit.backgroundColor === Colors.black
-        ? Colors.red
-        : Colors.black;
+    AppStore.settings.hit.backgroundColor = getRandomColor();
+    // AppStore.settings.hit.backgroundColor =
+    //   AppStore.settings.hit.backgroundColor === Colors.black
+    //     ? Colors.red
+    //     : Colors.black;
 
     AppStore.setData({
       ...AppStore.settings,

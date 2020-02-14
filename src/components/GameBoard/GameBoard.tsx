@@ -35,10 +35,10 @@ let isHitPlayer = true;
 let wrapperHeight = 0;
 const maxPoint = 100;
 
-const startSound = new Sound(require('../../assets/sounds/start.mp3'));
-const clickSound = new Sound(require('../../assets/sounds/clicked.mp3'));
-const windSound = new Sound(require('../../assets/sounds/wind.mp3'));
-const thunder = new Sound(require('../../assets/sounds/thunder.mp3'));
+const startSound = new Sound('start.mp3');
+const clickSound = new Sound('clicked.mp3');
+const windSound = new Sound('wind.mp3');
+const thunder = new Sound('thunder.mp3');
 let stateInitialazed = false;
 
 const playPauseBackgroundSound = () => {
