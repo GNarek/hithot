@@ -1,7 +1,19 @@
 import {StyleSheet} from 'react-native';
 import mainStyle, {Colors, Screen} from '../../MainStyle';
 
+const height = 10;
+
 const styles = StyleSheet.create({
+  separationLine: {
+    height: `${height}%`,
+    top: `${50 - height / 2}%`,
+    backgroundColor: 'rgba(0,0,0,0.3)',
+    borderTopWidth: 0.5,
+    borderBottomWidth: 0.5,
+    justifyContent: 'center',
+    width: '100%',
+    position: 'absolute',
+  },
   wrapper: {
     ...mainStyle.fullScreen,
   },

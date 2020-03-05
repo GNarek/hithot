@@ -8,6 +8,7 @@ import {View, Text, AppState} from 'react-native';
 import Sound from 'react-native-sound';
 
 import AppStore from '../../Store/Store';
+import MenuButton from '../MenuButton/MenuButton';
 import styles from './GameBoardStyle';
 import Cube from './Cube/Cube';
 import {uniqueID, getRandomInt} from './../../utils/utils';
@@ -144,7 +145,10 @@ const GameBoard = ({style = {}, onGameFinished, initialPoints}: IProps) => {
       {Object.keys(cubes).map(index => (
         <View key={cubes[index].id}>{cubes[index].element}</View>
       ))}
-      <Text>V: 1.0.1</Text>
+      <View style={styles.separationLine}>
+        <MenuButton onLongPress={onGameFinished} />
+      </View>
+      <Text>V: 1.0.5</Text>
       <Text style={[styles.name, styles.hitname]}>{`Hit: ${points.hit}`}</Text>
       <Text style={[styles.name, styles.hotname]}>{`Hot: ${points.hot}`}</Text>
     </View>

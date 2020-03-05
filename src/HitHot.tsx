@@ -15,7 +15,7 @@ const HitHot = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [points, setPoints] = useState(initialPoints);
 
-  const _handleOnGameFinished = useCallback(newPoints => {
+  const _handleOnGameFinished = useCallback((newPoints = initialPoints) => {
     setPoints({...newPoints});
     setIsGameStarted(false);
   }, []);

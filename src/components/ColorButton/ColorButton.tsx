@@ -3,9 +3,12 @@ import {View, TouchableOpacity} from 'react-native';
 import AppStore from '../../Store/Store';
 // import {Colors} from '../../MainStyle';
 import {getRandomColor} from '../../utils/utils';
-import styles from './SettingsStyle';
+import styles from './ColorButtonStyle';
+interface IProps {
+  player: 'hit' | 'hot';
+}
 
-const Settings = () => {
+const ColorButton = ({player}: IProps) => {
   const [settings, setSettings] = useState(AppStore.settings);
 
   useEffect(() => {
@@ -15,14 +18,8 @@ const Settings = () => {
       });
     });
   }, []);
-  const toggle = useCallback(() => {
-    // AppStore.settings.moveSoundEnabled = !AppStore.settings.moveSoundEnabled;
-
-    AppStore.settings.hit.backgroundColor = getRandomColor();
-    // AppStore.settings.hit.backgroundColor =
-    //   AppStore.settings.hit.backgroundColor === Colors.black
-    //     ? Colors.red
-    //     : Colors.black;
+  const setRandomColor = useCallback(() => {
+    AppStore.settings[player].backgroundColor = getRandomColor();
 
     AppStore.setData({
       ...AppStore.settings,
@@ -31,15 +28,15 @@ const Settings = () => {
     setSettings({
       ...AppStore.settings,
     });
-  }, []);
+  }, [player]);
 
   return (
     <View style={styles.wrapper}>
-      <TouchableOpacity onPress={toggle}>
+      <TouchableOpacity onPress={setRandomColor}>
         <View
           style={{
             ...styles.cube,
-            backgroundColor: settings.hit.backgroundColor,
+            backgroundColor: settings[player].backgroundColor,
           }}
         />
       </TouchableOpacity>
@@ -47,4 +44,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default ColorButton;

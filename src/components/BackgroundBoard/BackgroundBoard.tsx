@@ -22,9 +22,6 @@ const BackgroundBoard = () => {
         blurRadius={blurRadius}
       />
       <HalfBoard style={commonStyles.rotate} />
-
-      <View style={styles.separationLine} />
-
       <HalfBoard />
     </View>
   );

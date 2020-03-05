@@ -8,12 +8,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   boxWrapper: {
+    justifyContent: 'space-between',
     width: Screen.width / 1.5,
     height: Screen.height / 1.5,
     backgroundColor: 'rgba(100,100,100,0.5)',
   },
   box: {
-    flex: 3,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -23,11 +24,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   startButton: {
-    flex: 1,
-    marginTop: 20,
     backgroundColor: Colors.grey7,
     width: Screen.width / 4,
-    height: Screen.width / 8,
+    height: Screen.width / 6,
     alignItems: 'center',
     justifyContent: 'center',
   },

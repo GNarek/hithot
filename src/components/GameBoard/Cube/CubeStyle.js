@@ -18,15 +18,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   cube: {
-    opacity: 0.5,
+    opacity: 0.7,
     width: cubeSize,
     height: cubeSize,
-  },
-  playerHit: {
-    backgroundColor: AppStore.settings.hit.backgroundColor,
-  },
-  playerHot: {
-    backgroundColor: AppStore.settings.hot.backgroundColor,
   },
 });
 
