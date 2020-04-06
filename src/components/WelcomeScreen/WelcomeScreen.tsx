@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {IPoints} from '../../types';
 
 import ColorButton from '../ColorButton/ColorButton';
+import VibrationButton from '../VibrationButton/VibrationButton';
 import styles from './WelcomeScreenStyle';
 import mainStyle from '../../MainStyle';
 
@@ -26,6 +27,7 @@ const WelcomeScreen = ({points, onPress}: IProps) => {
         </View>
         <ColorButton player="hit" />
         <View style={styles.startWrapper}>
+          <VibrationButton />
           <TouchableOpacity onPress={_handleOnPress}>
             <View style={styles.startButton}>
               <Text>Start</Text>
